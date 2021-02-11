@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!--<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+    
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=019b78ef1a0843b7479a120c38786342&libraries=services"></script>
+    <link rel="stylesheet" href="../reset/reset.css">
+    <link rel="stylesheet" href="index.css">
+
+    <title>index page</title>
+  </head>
+  <body>
+    <div id="wrap">
+
+      <div id="container">
+        <!-- contain map and aside -->
+
+
+        <button class="aside_open_btn" type="button" name="aside_open_btn"></button>
+
+        <!-- aside -->
+        <div id="aside">
+
+          <!-- aside header -->
+          <div id="aside_header">
+            <div class="aside_header_logo">
+              <img class="aside_header_logo_img" src="../image/logo3.png" alt="logo image">
+              <button class="aside_header_logo_close_btn" type="button" name="aside_close_btn"></button>
+            </div>
+            <!-- aside_header_logo end -->
+
+            <div class="aside_header_search">
+              <input id="search_txt" type="text" name="search_txt" value="충전소 이름 검색">
+              <button id="search_btn" type="button" name="search_button"></button>
+            </div>
+            <!-- aside_header_search end -->
+            
+            <div class="aside_header_search_list">
+            </div>
+            
+          </div>
+          <!-- aside header end -->
+
+          <!-- aside contents -->
+          <div id="aside_contents">
+
+            <div id="aside_contents_header">
+              <div id="aside_contents_header_name">-</div>
+
+              <button id="aside_contents_header_notifybtn" type="button" name="button" onclick="window.open('http://jejuservice.herokuapp.com','report window','width=1000,height=500,location=no,status=no,scrollbars=yes');">불법주차 신고</button>
+
+            </div>
+
+            <ul id="aside_contents_menu">
+
+              <!-- menu item 1 -->
+              <li class="aside_contents_menu_charginfo_title active"><a href="#"><span>충전기정보</span></a></li>
+
+              <!-- menu item 2 -->
+              <li class="aside_contents_menu_otherinfo_title"><a href="#"><span>기타정보</span></a></li>
+
+            </ul>
+            <!-- aside_contents_menu end -->
+            <div class="menu_item aside_contents_menu_charginfo">
+              <table>
+                <tr>
+                  <td class="item_title rapid">급속충전</td><td>-</td>
+                </tr>
+                <tr>
+                  <td class="item_title slow">완속충전</td><td>-</td>
+                </tr>
+                <tr>
+                  <td class="item_title statUpdTime">업데이트 시간</td><td>-</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="menu_item aside_contents_menu_otherinfo">
+              <table>
+                <tr>
+                  <td class="item_title addr">주소</td><td>-</td>
+                </tr>
+                <tr>
+                  <td class="item_title useTime">이용가능시간</td><td>-</td>
+                </tr>
+                <tr>
+                  <td class="item_title busiId">관리업체명</td><td>-</td>
+                </tr>
+                <tr>
+                  <td class="item_title busiCall">전화번호</td><td>-</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <!-- aside_contents end -->
+
+          <div id="aside_checkboxes">
+            <h3 id="aside_checkboxes_header">
+              주변 탐색
+            </h3>
+            <table>
+              <tr>
+                <td><input id="restaurant" type="checkbox" name="" value=""><label for="restaurant">음식점/카페</label></td>
+                <td><input id="tour" type="checkbox" name="" value=""><label for="tour">관광/숙박</label></td>
+                <td><input id="medical" type="checkbox" name="" value=""><label for="medical">의료/복지</label></td>
+              </tr>
+              <tr>
+                <td><input id="convenient" type="checkbox" name="" value=""><label for="convenient">쇼핑/편의</label></td>
+                <td><input id="mart" type="checkbox" name="" value=""><label for="mart">마트</label></td>
+              </tr>
+            </table>
+          </div>
+          <!-- aside checkboxes end -->
+
+          <div class="aside_box restaurant_box">
+            <h3>음식점/카페</h3>
+            <div class="aside_box_wrap">
+            </div>
+          </div>
+
+          <div class="aside_box tour_box">
+            <h3>관광/숙박</h3>
+            <div class="aside_box_wrap">
+            </div>
+          </div>
+
+          <div class="aside_box medical_box">
+            <h3>의료/복지</h3>
+            <div class="aside_box_wrap">
+            </div>
+          </div>
+
+          <div class="aside_box convenient_box">
+            <h3>문화시설/편의</h3>
+            <div class="aside_box_wrap">
+            </div>
+          </div>
+
+          <div class="aside_box mart_box">
+            <h3>마트</h3>
+            <div class="aside_box_wrap">
+            </div>
+          </div>
+        </div>
+
+        <!-- aside end  -->
+
+
+        <!-- map -->
+        <div id="map_wrap">
+          <div id="map">
+          </div>
+        </div>
+
+		<div id="marker_legend">
+          <div class="marker_legend_item">
+            <div class="marker_legend_item_imgbox">
+              <img src="../image/marker/GN_marker.png" alt="지엔텔 마커">
+            </div>
+            <div class="marker_legend_item_name">
+              지엔텔
+            </div>
+          </div>
+          <div class="marker_legend_item">
+            <div class="marker_legend_item_imgbox">
+              <img src="../image/marker/HE_marker.png" alt="한국전기차충전서비스 마커">
+            </div>
+            <div class="marker_legend_item_name">
+              한국전기차충전서비스
+            </div>
+          </div>
+          <div class="marker_legend_item">
+            <div class="marker_legend_item_imgbox">
+              <img src="../image/marker/JE_marker.png" alt="제주전기자동차서비스 마커">
+            </div>
+            <div class="marker_legend_item_name">
+              제주전기자동차서비스
+            </div>
+          </div>
+          <div class="marker_legend_item">
+            <div class="marker_legend_item_imgbox">
+              <img src="../image/marker/ME_marker.png" alt="환경부 마커">
+            </div>
+            <div class="marker_legend_item_name">
+              환경부
+            </div>
+          </div>
+          <div class="marker_legend_item">
+            <div class="marker_legend_item_imgbox">
+              <img src="../image/marker/CV_marker.png" alt="대영채비 마커">
+            </div>
+            <div class="marker_legend_item_name">
+              대영채비
+            </div>
+          </div>
+          <div class="marker_legend_item">
+            <div class="marker_legend_item_imgbox">
+              <img src="../image/marker/KT_marker.png" alt="케이티 마커">
+            </div>
+            <div class="marker_legend_item_name">
+              KT
+            </div>
+          </div>
+          <div class="marker_legend_item">
+            <div class="marker_legend_item_imgbox">
+              <img src="../image/marker/PI_marker.png" alt="차지비 마커">
+            </div>
+            <div class="marker_legend_item_name">
+              차지비
+            </div>
+          </div>
+          <div class="marker_legend_item">
+            <div class="marker_legend_item_imgbox">
+              <img src="../image/marker/PW_marker.png" alt="파워큐브 마커">
+            </div>
+            <div class="marker_legend_item_name">
+              파워큐브
+            </div>
+          </div>
+          <div class="marker_legend_item">
+            <div class="marker_legend_item_imgbox">
+              <img src="../image/marker/KJ_marker.png" alt="한국전력 마커">
+            </div>
+            <div class="marker_legend_item_name">
+              한국전력
+            </div>
+          </div>
+        </div>
+		
+		
+		<div id="current_location">
+          <img src="../image/marker/current_location.png" alt="">
+          <div class="current_location_name">현 위치</div>
+        </div>
+		
+		
+      </div>
+      <!-- container end -->
+
+
+      <!-- footer  -->
+      <div id="footer">
+        <div class="footer_logo">
+
+        </div>
+        <!-- footer_logo end -->
+        <div class="footer_copyright">
+
+          <ul class="footer_copyright_list">
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, </li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, </li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, </li>
+          </ul>
+          <!-- footer_copyright_list end -->
+
+          <p class="footer_copyright_text">
+            Copyright 2020. Sejong Geoinfo-Engineering all rights reserved.
+          </p>
+          <!-- footer_copyright_text end -->
+        </div>
+        <!-- footer_copyright end -->
+      </div>
+      <!-- footer end -->
+
+    </div>
+    <!-- wrap end -->
+    <script type="text/javascript">
+      var container = document.getElementById('map');
+      var options = {
+        center: new kakao.maps.LatLng(33.364184, 126.546987),
+        level: 9
+      };
+
+      var map = new kakao.maps.Map(container, options);
+      var mapTypeControl = new kakao.maps.MapTypeControl();
+
+	   // 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+	   // kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+	   map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+	
+	   // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+	   var zoomControl = new kakao.maps.ZoomControl();
+	   map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+	   
+	   // -----------------------------
+	   // HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+   
+    </script>
+    <script type="text/javascript" src="dataRequestEditted.js"></script>
+  </body>
+</html>
