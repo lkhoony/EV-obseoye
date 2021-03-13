@@ -4,6 +4,8 @@
 
 [![GitHub license](https://img.shields.io/github/license/lkhoony/EV-obseoye?style=plastic)](https://github.com/lkhoony/EV-obseoye)
 
+![image](https://user-images.githubusercontent.com/66773320/111022496-6d21a300-8416-11eb-8cf0-970be93bbce1.png)
+
 ## Introduction
 
 EV Obseoye is an web site providing a map of electric vehicle charging stations in Jeu island in Korea
